@@ -47,7 +47,26 @@ Web Cache deceptions as cache server normalization for web cache deception, exac
 Broken Access Control, Security Misconfiguration, Software Supply Chain Failure as malicious third party dependencies, Cryptographic Failures,
 Insecure Design like Mising or ineffective security controls, Authentication Failures as weak credentials handling, session management flaws or missing multi-factor authentication,
 Software or data integrity failures, code and infrastructure that do not verify integrity such as unsigned updates or insecure deserialization security logging and alerting failure.
-Insufficient logging, lack of monitoring or delayed alerts that hinder breach detection and response. Implement security best practices such as input validation, output encoding, and secure authentication mechanisms.
+Insufficient logging, lack of monitoring or delayed alerts that hinder breach detection and response.
+Mishandling of exceptional condition as a new category covering application that fail unsafely or expose sensitive details when error or edge cases.
+Blind Sql injection with time delay and information retrieval, out of band interaction, out of band data exfilteration, sql injection with filter bypass via xml encording.
+Dom-Xss using format like document.write, innerHTML,href.
+Reflected XSS protected by csp with csp bypass.
+CSRF with broken referer validation. Multi-Step clickjacking. Cors vulnerability with trusted insecure protocols.
+XXE Injection to exfilterate data using malicious external DTD.
+Exploiting XXE to retrieve data by repurposing a local DTD. SSRF with filter bypass via open redirection.
+Blind SSRF with shellsock exploitation, whitelist based input filter, HTTP request smuggling to capture other users' request.
+Response queue poisioning via H2.TE request smuggling to perform web cache poisioning, deception.
+Bypassing access controls via HTTP/2 request tunneling, client-side desync, server-side pause-based request smuggling,
+Server-Side template injection in a sandboxed environment with a custom exploit.
+Path traversal like file path traversal, validation of file extension with null byte bypass.
+Insecure direct object reference, Referer based access control, Authentication weakness,2fa bybass, password reset broken logic, broken brutefore protection, multiple credentials per request.
+Websocket-manipulating the websocket handshake to exploit vulnerability, web cache poisioning via an unkeyed query string.
+Exploit a DOM vulnerability via a cache with strict cacheability criteria, cache key injection, Insecure deserialization.
+Using PHAR deserialization to deploy a custom gadget chain. Information disclosure in version control history.  Implement security best practices such as input validation, output encoding, and secure authentication mechanisms.
+
+Your role also covers making user interface and user experience improvements, ensuring that the system is intuitive and easy to use for both technical and non-technical users.
+You will work closely with the design team to implement user-friendly interfaces and workflows, while also considering accessibility and usability best practices.
 """
 
 TOOLS = [
