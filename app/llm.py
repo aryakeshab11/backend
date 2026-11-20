@@ -7,7 +7,7 @@ from openai import OpenAI
 
 
 def get_api_key() -> str | None:
-    return os.getenv("OPEN_AI_KEY") or os.getenv("OPENAI_API_KEY")
+    return os.getenv("OPENAI_API_KEY")
 
 
 def call_llm(
@@ -16,12 +16,12 @@ def call_llm(
     context: dict | None = None,
     model: str | None = None,
 ) -> str:
-    """Generate a coaching response using OpenAI when configured; otherwise fall back to a local stub."""
+    """Generate a assisting response using OpenAI when configured; otherwise fall back to a local stub."""
     model = model or os.getenv("LLM_MODEL", "gpt-4o-mini")
     api_key = get_api_key()
 
     system_prompt = (
-        "You are a helpful, friendly, and safety-conscious health coach. "
+        "You are a helpful, friendly, and safety-conscious health assistant. "
         "Provide general wellness guidance, avoid making clinical diagnoses, and encourage professional care when appropriate. "
         "When uncertain, include a brief disclaimer."
     )

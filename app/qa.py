@@ -40,9 +40,9 @@ def _load_index():
 def _embed_query(query: str) -> np.ndarray:
     from openai import OpenAI
 
-    api_key = os.getenv("OPEN_AI_KEY") or os.getenv("OPENAI_API_KEY")
+    api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        raise HTTPException(status_code=503, detail="OPEN_AI_KEY is not configured.")
+        raise HTTPException(status_code=503, detail="OPENAI_API_KEY is not configured.")
 
     client = OpenAI(api_key=api_key)
     result = client.embeddings.create(model="text-embedding-3-small", input=[query])

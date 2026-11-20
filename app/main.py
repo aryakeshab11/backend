@@ -4,13 +4,29 @@ import os
 from typing import Any
 
 from fastapi import FastAPI, HTTPException
+from fastapi import APIRouter, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from app.agents.devops_agent import run_devops_agent
 
 from app.llm import call_llm
 from app.qa import router as qa_router
 
-app = FastAPI(title="AI-Health-Coach API", version="0.1.0")
+router = APIRouter(prefix="/devops", tags=["devops"])
+
+class DevOpsRequest(BaseModel):
+    prompt: str
+    model: str = "gpt-5-mini"
+
+@router.post("/assist")
+def devops_assist(payload: DevOpsRequest):
+    try:
+        reply = run_devops_agent(prompt=payload.prompt, model=payload.model)
+        return {"response": reply}
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+app = FastAPI(title="AI-Health-Assistant API", version="0.1.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -21,7 +37,7 @@ app.add_middleware(
 )
 
 app.include_router(qa_router)
-
+app.include_router(router)
 
 class ChatRequest(BaseModel):
     message: str
@@ -36,7 +52,7 @@ class ChatResponse(BaseModel):
 
 @app.get("/health")
 def health_check() -> dict[str, str]:
-    return {"status": "ok", "service": "AI-Health-Coach API"}
+    return {"status": "ok", "service": "AI-Health-Assistant API"}
 
 
 @app.post("/chat", response_model=ChatResponse)
