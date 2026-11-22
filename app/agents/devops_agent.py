@@ -84,9 +84,9 @@ TOOLS = [
 
 def _run_git_status() -> str:
     try:
-        status = subprocess.check_output(["git", "status", "--short"], text=True stderr=subprocess.STDOUT).strip()
+        status = subprocess.check_output(["git", "status", "--short"], text=True, stderr=subprocess.STDOUT).strip()
         #branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"], text=True).strip()
-        log = subprocess.check_output(["git", "log", "-n", "5", "--oneline", "--pretty=format:%h - %s (%ci)"], text=True stderr=subprocess.STDOUT).strip()
+        log = subprocess.check_output(["git", "log", "-n", "5", "--oneline", "--pretty=format:%h - %s (%ci)"], text=True, stderr=subprocess.STDOUT).strip()
         #return f"Current branch: {branch_output}\n\nGit Status:\n{status_output}\n\nRecent Commits:\n{log_output}"
         return f"Git Status:\n{status or 'clean'}\n\nRecent Commits:\n{log}"
     #except subprocess.CalledProcessError as e:
