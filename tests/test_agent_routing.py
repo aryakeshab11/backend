@@ -1,5 +1,5 @@
 from __future__ import annotations
-from backend.app.agents.router import build_agent_response
+from app.agents.router import build_agent_response
 
 
 def test_routes_diabetes_message():

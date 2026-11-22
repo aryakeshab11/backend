@@ -1,5 +1,5 @@
 import pytest
-from httpx import AsyncClient
+from httpx2 import AsyncClient
 
 import app.main as main_module
 
