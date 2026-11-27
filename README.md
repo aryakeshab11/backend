@@ -1,6 +1,6 @@
 # AI-Health-Assistant backend
 
-This backend provides the API foundation for the AI-Health-Coach application.
+This backend provides the API foundation for the AI-Health-Assiatant application.
 
 ## Features
 
