@@ -1,11 +1,11 @@
-# AI-Health-Coach backend
+# AI-Health-Assistant backend
 
 This backend provides the API foundation for the AI-Health-Coach application.
 
 ## Features
 
 - health check endpoint
-- chat endpoint for AI coaching interactions
+- chat endpoint for AI assistance interactions
 - minimal configuration via environment variables
 
 ## Local development
